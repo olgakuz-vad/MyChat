@@ -1,0 +1,249 @@
+body {
+	margin: 0px auto;
+	width: 90%;
+	padding: 0px;
+	background: lightgreen;
+	font-size: 1.1rem;
+}
+
+.table-page {
+	width: 100%;
+	height: 100%;
+	vertical-align: top;
+	box-sizing: content-box;
+}
+.table-page tr {height: 100%;}
+
+ul.mainmenu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	height: 60px;
+	color: #196207;
+	overflow: hidden;
+}
+
+ul.mainmenu li {
+	float: left;
+	margin: 18px 40px 0 30px;
+	font-size: 25px;
+}
+
+ul.mainmenu li.last {
+    float: right;
+    font-size: 20px;
+}
+
+ul.mainmenu li a {
+	color: #196207;
+	text-decoration: underline;
+    text-indent: 40px;
+    vertical-align: middle;
+}
+ul.mainmenu li a:hover {
+	color: #FDA83D;
+}
+
+ul.mainmenu li.a_last {
+    float: right;
+    font-size: 25px;
+}
+
+.header {
+    background-color: #EEEFF1;
+    max-width: 1920px;
+    padding: 0 20px;
+    margin: 0 auto;
+
+}
+
+.table-page {
+	width: 100%;
+	height: 200%;
+	vertical-align: text-top;;
+	background: rgb(55 126 45 / 38%);
+	color: white;
+
+}
+.table-page tr {height: 100%;}
+
+#shirt {
+    float: left;
+    list-style-type: none;
+    vertical-align: middle;
+    padding: 2px;
+    margin: 10px;
+}
+
+#shirt h1 {
+    padding-left: 2px;
+    list-style-type: none;
+    vertical-align: bottom;
+	font-size: 160%;
+    color: #0b0b0b;
+}
+
+#shirt h4 {
+    padding-left: 2px;
+    list-style-type: none;
+    vertical-align: bottom;
+	font-size: 160%;
+    color: #0b0b0b;
+}
+
+
+ul.control {
+	margin: 0;
+	padding: 60px 0 0 0;
+	list-style: none;
+	font-family: Sans-serif, Arial, Tahoma;
+	font-size: 18px;
+	width: 100%;
+}
+ul.control li {	float: left; padding: 0 0 0 10px;}
+ul.control li.first:before {content: "\2190"; padding: 0 10px 0 0;}
+ul.control li.last {float: right; padding: 0 40px 0 0;}
+ul.control li.last:after {content: "\2192"; padding: 0 0 0 10px;}
+ul.control li a { color: #0059b2; text-decoration: none; }
+ul.control li a:hover { color: #CC0000; }
+
+ul.content-table {
+	margin: 0;
+	padding: 60px 0 0 30px;
+	list-style: none;
+	font-family: Sans-serif, Arial, Tahoma;
+	font-size: 28px;
+}
+ul.content-table li {
+	margin: 0 0 40px 0;
+}
+ul.content-table li a {
+	color: #BB5715;
+	text-decoration: none;
+}
+ul.content-table li a:hover {color: #F0711C;}
+
+.a_djangochat {
+    float: left;
+    list-style-type: none;
+    margin: 25px;
+    color: #196207;
+    padding: 4px;
+    font-size: 4vw;
+}
+
+.a_signup {
+    width: 200px;
+    height: 150px;
+    color: #FFFFFF;
+    background: rgb(86 101 102)
+    padding: 4px;
+    font-size: 3vw;
+}
+
+a:hover {
+    background-color: LightSteelBlue;
+    color: #6d0ddc;
+}
+.heade_two {
+    text: 3xl;
+    color: #196207;
+    text-align: center;
+    text-indent: 40px;
+    vertical-align: middle;
+}
+
+.signup {
+    text: 3xl;
+    color: white;
+    text-align: right
+    text-indent: 40px;
+    vertical-align: middle;
+}
+
+.rooms {
+    float: left;
+    list-style-type: none;
+    margin: 25px;
+    color: #196207;
+    padding: 4px;
+    font-size: 4vw;
+
+}
+a:visited {
+    color: #0059b2;
+    font-size: 20px;
+}
+
+.box {
+  border: 5px solid rebeccapurple;
+  background-color: lightgray;
+  padding: 40px;
+  margin: 40px;
+  width: 350px;
+  height: 100px;
+}
+
+.alternate {
+  border: 5px solid rebeccapurple;
+  background-color: lightgray;
+  padding: 0;
+  margin: 40px;
+  width: 300px;
+  height: 100px;
+
+}
+
+.container {
+  width: 100%;
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.chat {
+    text: 3xl;
+    color: #196207;
+    text-align: left;
+    text-indent: 0px;
+    vertical-align: top;
+}
+
+.text-field__group {
+  display: flex;
+}
+/* кнопка */
+.text-field__btn {
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background-color: #eee;
+  border: 1px solid #bdbdbd;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  border-radius: .25rem;
+  transition: background-color .15s ease-in-out;
+}
+.text-field__btn:hover {
+  background-color: #bdbdbd;
+}
+.text-field__group .text-field__input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  position: relative;
+  z-index: 2;
+}
+.text-field__group .text-field__btn {
+  position: relative;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left-width: 0;
+}

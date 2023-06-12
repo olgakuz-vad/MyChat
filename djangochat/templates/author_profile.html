@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="content-section">
+      <div class="media">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+        <div class="media-body">
+          <h2 class="account-heading">{{ user.authorUser.first_name }}</h2>
+          <p class="text-secondary">{{ authorUser.email }}</p>
+        </div>
+      </div>
+      <!-- Здесь будет форма -->
+    </div>
+{% endblock content %}

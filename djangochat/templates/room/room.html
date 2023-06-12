@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ room.name }}| {% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 >{{ room.name }}</h1>
+</div>
+<form method="post" action="." >
+        {% csrf_token %}
+
+<div class="box">
+    <div class="chat" id="chat-messages">
+        {% for m in messages %}
+        <div class="chat">
+           <h4> {{ m.user.username }}</h4>
+            <p> {{ m.message }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="text-field">
+    <label for="team_name">Введите сообщения : </label>
+    <input id="chat-message-input" type="text" name="message" placeholder="Your message..." >
+</div>
+  <div>
+    <button id="chat-message-submit" >Отправить</button>
+  </div>
+</form>
+
+{% endblock content %}
+
+        <!-- Optional JavaScript -->
+{% block scripts %}
+{{ room.slug|json_script:"json-roomname" }}
+{{ request.sender.username|json_script:"json-username" }}
+
+        <script>
+            const roomName = JSON.parse(document.getElementById('json-roomname').textContent);
+            const userName = JSON.parse(document.getElementById('json-username').textContent);
+
+            const chatSocket = new WebSocket(
+                'ws://'
+                + window.location.host
+                + '/ws/'
+                + roomName
+                + '/'
+            );
+
+            chatSocket.onmessage = function (e) {
+                console.log('onmessage')
+
+                const data = JSON.parse(e.data);
+
+                if (data.message) {
+                    let html = '<div class="box">';
+                        html += '<div class="chat" id="chat-messages">';
+                        html += '<div class="chat">';
+                        html += '<h4>' + data.username + '</h4>';
+                        html += '<p>' + data.message + '</p></div></div></div>';
+
+                    document.querySelector('#chat-message').innerHTML += html;
+                } else {
+                    alert("Сообщение отсутствует");
+               }
+
+            };
+
+            chatSocket.onclose = function (e) {
+                console.log('onclose')
+
+            };
+
+            document.querySelector('#chat-message-submit').onclick = function (e) {
+                e.preventDefault();
+
+                const messageInputDom = document.querySelector('#chat-message-input');
+                const message = messageInputDom.value;
+
+                chatSocket.send(JSON.stringify({
+                    'message': message,
+                    'username': userName,
+                    'room': 'roomName',
+                }));
+                messageInputDom.value = '';
+                return false;
+            });
+
+
+        </script>
+
+{% endblock scripts %}
