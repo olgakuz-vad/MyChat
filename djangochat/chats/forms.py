@@ -16,3 +16,13 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'password1', 'password2']
+
+
+class AddRoomForm(forms.Form):
+    name = forms.CharField(max_length=100, label='Название')
+    slug = forms.SlugField(max_length=100, label='URL')
+
+
+class AddChatForm(forms.Form):
+    name = forms.CharField(max_length=100, label='Название')
+    slug = forms.SlugField(max_length=100, label='URL')

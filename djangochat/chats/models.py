@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 from PIL import Image
 
 
@@ -27,10 +28,16 @@ class ChatModel(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ('date_added', )
+        ordering = ('sender','date_added', )
 
     def __str__(self):
         return self.message
+
+    def get_absolute_url(self):
+        return reverse('chat', kwargs={'chat_id':self.pk})
+
+
+
 
 
 

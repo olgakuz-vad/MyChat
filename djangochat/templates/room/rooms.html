@@ -8,10 +8,12 @@
         </div>
 
 <div class="rooms">
+<ul id="add"><a href="{% url 'add_room' %}"> Добавить групповой чат </a></ul>
     {% for room in rooms %}
     <p>{{ room.name }} | <a href="{% url 'room' room.slug %}"> Join </a>
     </p>
     {% endfor %}
 </div>
+
 
 {% endblock content %}

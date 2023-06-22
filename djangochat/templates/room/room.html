@@ -6,23 +6,29 @@
 <div class="container">
     <h1 >{{ room.name }}</h1>
 </div>
-<form method="post" action="." >
+<form method="post" action="." id="form" >
         {% csrf_token %}
+    <ul>
+        {% for message in messages %}
+        <li>
+            <h2>{{ message.message|truncatewords:10 }}</h2>
+{% if message.sender.avatar %}
+    <p> <img class="img-left" src="{{ message.sender.avatar.url }}" style="width:50px"></p>
+{% endif %}
+            <h3>{{ message.sender }}</h3>
+             <p>{{ message.date_added }}</p>
 
-<div class="box">
-    <div class="chat" id="chat-messages">
-        {% for m in messages %}
-        <div class="chat">
-           <h4> {{ m.user.username }}</h4>
-            <p> {{ m.message }}</p>
-        </div>
+            <hr>
+        </li>
         {% endfor %}
-    </div>
-</div>
+    </ul>
 
-<div class="text-field">
-    <label for="team_name">Введите сообщения : </label>
-    <input id="chat-message-input" type="text" name="message" placeholder="Your message..." >
+
+<div id="chat-message">
+
+   <input id="chat-message-input" type="text" name="message"
+
+           placeholder="Your message..." >
 </div>
   <div>
     <button id="chat-message-submit" >Отправить</button>
@@ -55,7 +61,7 @@
 
                 if (data.message) {
                     let html = '<div class="box">';
-                        html += '<div class="chat" id="chat-messages">';
+                        html += '<div class="chat" id="chat-message">';
                         html += '<div class="chat">';
                         html += '<h4>' + data.username + '</h4>';
                         html += '<p>' + data.message + '</p></div></div></div>';
@@ -86,7 +92,6 @@
                 messageInputDom.value = '';
                 return false;
             });
-
 
         </script>
 

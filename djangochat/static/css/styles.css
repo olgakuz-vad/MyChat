@@ -176,21 +176,21 @@ a:visited {
 }
 
 .box {
-  border: 5px solid rebeccapurple;
+  border: 0;
   background-color: lightgray;
-  padding: 40px;
-  margin: 40px;
-  width: 350px;
-  height: 100px;
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+  height: 0px;
 }
 
 .alternate {
-  border: 5px solid rebeccapurple;
+  border: 0;
   background-color: lightgray;
   padding: 0;
-  margin: 40px;
-  width: 300px;
-  height: 100px;
+  margin: 10px;
+  width: 200px;
+  height: 0px;
 
 }
 
@@ -246,4 +246,11 @@ a:visited {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   border-left-width: 0;
+}
+
+.img.img-left {
+	max-width: 100px;
+	height: auto;
+	float: left;
+	padding: 0 10px 10px 0;
 }
